@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/e-library/src",
+  "monorepo": true,
+  "root": "apps/e-library",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/e-library/tsconfig.app.json"
+  },
+  "generateOptions": {
+    "spec": false
+  },
+  "projects": {
+    "e-library": {
+      "type": "application",
+      "root": "apps/e-library",
+      "entryFile": "main",
+      "sourceRoot": "apps/e-library/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/e-library/tsconfig.app.json",
+        "assets": [
+          "mail/templates/**/*"
+        ],
+        "watchAssets": true,
+        "deleteOutDir": false
+      }
+    },
+    "member-site": {
+      "type": "application",
+      "root": "apps/member-site",
+      "entryFile": "main",
+      "sourceRoot": "apps/member-site/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/member-site/tsconfig.app.json",
+        "assets": [
+          "mail/templates/**/*"
+        ],
+        "deleteOutDir": false
+      }
+    },
+    "viewer-site": {
+      "type": "application",
+      "root": "apps/viewer-site",
+      "entryFile": "main",
+      "sourceRoot": "apps/viewer-site/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/viewer-site/tsconfig.app.json",
+        "deleteOutDir": false
+      }
+    }
+  }
+}
